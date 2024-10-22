@@ -4,16 +4,7 @@ from PIL import Image
 import numpy as np
 import io
 
-st.markdown(
-    """
-        <style>
-            .text {
-                color: red
-            }
-        </style>
-    """,
-    unsafe_allow_html=True
-)
+
 
 def sketch_image(image, k_size, scale):
     
@@ -56,7 +47,7 @@ if uploaded_image is not None:
     
     scale = st.slider("Adjust Sketch Intensity", min_value=50.0, max_value=1000.0, value=256.0)
     
-    sketch = sketch_image(image=img_array, k_size=111, scale=scale)
+    sketch = sketch_image(image=img_array, k_size=21, scale=scale)
     
     sketch = cv2.cvtColor(sketch, cv2.COLOR_BGR2RGB)
     
