@@ -21,7 +21,7 @@ def sketch_image(image, k_size, scale):
     invblur_img = cv2.bitwise_not(blur_img)
     
     # Sketch Image
-    sketch_img = cv2.divide(gray_image, blur_img, scale=scale)
+    sketch_img = cv2.divide(gray_image, invblur_img, scale=scale)
     
     rgb_sketch = cv2.cvtColor(sketch_img, cv2.COLOR_BGR2RGB)
     
@@ -45,9 +45,9 @@ if uploaded_image is not None:
     
     img_array = cv2.cvtColor(img_array, cv2.COLOR_RGB2BGR)
     
-    scale = st.slider("Adjust Sketch Intensity", min_value=50.0, max_value=1000.0, value=256.0)
+    # scale = st.slider("Adjust Sketch Intensity", min_value=50.0, max_value=1000.0, value=256.0)
     
-    sketch = sketch_image(image=img_array, k_size=21, scale=scale)
+    sketch = sketch_image(image=img_array, k_size=21, scale=256.0)
     
     sketch = cv2.cvtColor(sketch, cv2.COLOR_BGR2RGB)
     
