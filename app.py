@@ -37,7 +37,7 @@ uploaded_image = st.file_uploader('Upload an image to sketch', type=['jpg', 'jpe
 
 if uploaded_image is not None:
     img = Image.open(uploaded_image)
-    img = np.array(img)
+    
     
     # st.image(img, caption="Uploaded Image", use_column_width=True)
     
